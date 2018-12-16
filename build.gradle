@@ -18,6 +18,10 @@ bootJar {
 
 repositories {
     mavenCentral()
+
+    maven {
+        url "https://artifacts.elastic.co/maven"
+    }
 }
 
 sourceCompatibility = 1.8
@@ -25,7 +29,12 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-elasticsearch:2.1.1.RELEASE")
+    compile("org.elasticsearch.client:x-pack-transport:6.4.2")
+
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '3.2.0'
 }
+
 
