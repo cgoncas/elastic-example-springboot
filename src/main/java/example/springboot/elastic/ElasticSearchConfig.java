@@ -1,18 +1,12 @@
 package example.springboot.elastic;
 
-import org.apache.logging.log4j.Logger;
-import org.elasticsearch.action.ActionFuture;
-import org.elasticsearch.action.admin.cluster.health.ClusterHealthResponse;
-import org.elasticsearch.client.Client;
-import org.elasticsearch.client.Requests;
 import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.logging.ESLoggerFactory;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.TransportAddress;
-import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.elasticsearch.xpack.client.PreBuiltXPackTransportClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,11 +15,8 @@ import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 
-import java.net.Inet4Address;
-import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "example.springboot.elastic.repository")
@@ -76,7 +67,7 @@ public class ElasticSearchConfig {
         return client;
     }
 
-    private Logger logger = ESLoggerFactory.getLogger(getClass().getCanonicalName());
+    Logger logger = LoggerFactory.getLogger(ElasticSearchConfig.class);
 
     @Bean
     public ElasticsearchOperations elasticsearchTemplate() throws Exception {
