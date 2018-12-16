@@ -1,10 +1,11 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.1.RELEASE")
         classpath("com.bmuschko:gradle-docker-plugin:4.0.5")
+        classpath("com.avast.gradle:gradle-docker-compose-plugin:0.7.1")
     }
 }
 
@@ -12,6 +13,7 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.bmuschko.docker-remote-api'
+apply plugin: 'docker-compose'
 
 bootJar {
     baseName = 'elastic-example-springboot'
