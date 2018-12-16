@@ -39,6 +39,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-elasticsearch:2.1.1.RELEASE")
     compile("org.elasticsearch.client:x-pack-transport:6.4.2")
+    compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '5.1'
 
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
