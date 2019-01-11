@@ -1,6 +1,7 @@
 # Elastic Cloud example with Spring Boot
 
 [![Build Status](https://travis-ci.org/cgoncas/elastic-example-springboot.svg?branch=master)](https://travis-ci.org/cgoncas/elastic-example-springboot)
+[![codecov](https://codecov.io/gh/cgoncas/elastic-example-springboot/branch/master/graph/badge.svg)](https://codecov.io/gh/cgoncas/elastic-example-springboot)
 
 Example of how connect elastic cloud with SpringData
 
