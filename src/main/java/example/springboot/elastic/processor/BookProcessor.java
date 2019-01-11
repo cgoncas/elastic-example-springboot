@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 @Service
 public class BookProcessor {
@@ -30,7 +32,8 @@ public class BookProcessor {
                             BookProcessorUtil.getAuthors(book.getAuthors(), bookAuthor -> authorService.findByName(bookAuthor.getName())));
 
                     return Result.success(bookService.save(book));
-                }
+                },
+                executor
         ).handle((result, e) -> {
             if (result != null) {
                 return result;
@@ -47,5 +50,7 @@ public class BookProcessor {
             return (Result<Book>) result;
         });
     }
+
+    private Executor executor = Executors.newSingleThreadExecutor();
 
 }
